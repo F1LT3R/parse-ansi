@@ -1,10 +1,12 @@
+const path = require('path')
+
 const arrayUniq = require('array-uniq')
 const ansiRegex = require('ansi-regex')
 const superSplit = require('super-split')
 const stripAnsi = require('strip-ansi')
 
-const ansiTags = require('./ansi-seqs-to-ansi-tags')
-const decorators = require('./ansi-tags-to-decorator-names')
+const ansiTags = require(path.join(__dirname, './ansi-seqs-to-ansi-tags'))
+const decorators = require(path.join(__dirname, './ansi-tags-to-decorator-names'))
 
 const meassureTextArea = plainText => {
 	const lines = plainText.split('\n')

@@ -1,7 +1,7 @@
 {
 	"name": "parse-ansi",
 	"main": "parse-ansi",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "🤖  Parse ANSI text into an array of ansi-tags and text-chunks.",
 	"license": "MIT",
 	"repository": "F1LT3R/parse-ansi",
