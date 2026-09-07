@@ -56,5 +56,5 @@ module.exports = {
 	'\u001B[28m': 'hiddenClose',
 	'\u001B[29m': 'strikethroughClose',
 
-	'\u001B[0m': 'reset',
+	'\u001B[0m': 'reset'
 }

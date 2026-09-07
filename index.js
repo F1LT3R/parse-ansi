@@ -1,11 +1,12 @@
 'use strict'
 
-const arrayUniq = require('array-uniq').default
-const ansiRegex = require('ansi-regex').default
+const arrayUniq = require('array-uniq')
+const ansiRegex = require('ansi-regex')
 const superSplit = require('super-split')
-const stripAnsi = require('strip-ansi').default
-const ansiTags = require('./ansi-seqs-to-ansi-tags.js')
-const decorators = require('./ansi-tags-to-decorator-names.js')
+const stripAnsi = require('strip-ansi')
+
+const ansiTags = require('./ansi-seqs-to-ansi-tags')
+const decorators = require('./ansi-tags-to-decorator-names')
 
 const meassureTextArea = plainText => {
 	const lines = plainText.split('\n')
@@ -40,25 +41,24 @@ const parse = ansi => {
 		raw: ansi,
 		plainText,
 		textArea,
-		chunks: [],
+		chunks: []
 	}
 
 	const {
 		ansies,
-		words,
+		words
 	} = atomize(ansi)
 
 	const styleStack = {
 		foregroundColor: [],
 		backgroundColor: [],
-		boldDim: [],
+		boldDim: []
 	}
 
 	const getForegroundColor = () => {
 		if (styleStack.foregroundColor.length > 0) {
 			return styleStack.foregroundColor[styleStack.foregroundColor.length - 1]
 		}
-
 		return false
 	}
 
@@ -66,20 +66,23 @@ const parse = ansi => {
 		if (styleStack.backgroundColor.length > 0) {
 			return styleStack.backgroundColor[styleStack.backgroundColor.length - 1]
 		}
-
 		return false
 	}
 
-	const getDim = () => styleStack.boldDim.includes('dim')
+	const getDim = () => {
+		return styleStack.boldDim.includes('dim')
+	}
 
-	const getBold = () => styleStack.boldDim.includes('bold')
+	const getBold = () => {
+		return styleStack.boldDim.includes('bold')
+	}
 
 	const styleState = {
 		italic: false,
 		underline: false,
 		inverse: false,
 		hidden: false,
-		strikethrough: false,
+		strikethrough: false
 	}
 
 	let x = 0
@@ -92,8 +95,8 @@ const parse = ansi => {
 			type,
 			value,
 			position: {
-				x, y, n: nPlain, raw: nAnsi,
-			},
+				x, y, n: nPlain, raw: nAnsi
+			}
 		}
 
 		if (type === 'text' || type === 'ansi') {
@@ -243,7 +246,7 @@ const parse = ansi => {
 		const chunk = bundle('ansi', {
 			tag: ansiTag,
 			ansi: word,
-			decorator,
+			decorator
 		})
 
 		result.chunks.push(chunk)
