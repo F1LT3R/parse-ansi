@@ -10,7 +10,7 @@ const lines = [
 		'italic',
 		'underline',
 		'inverse',
-		'strikethrough'
+		'strikethrough',
 	],
 
 	[
@@ -21,7 +21,7 @@ const lines = [
 		'bold.blue',
 		'bold.magenta',
 		'bold.cyan',
-		'bold.white'
+		'bold.white',
 	],
 
 	[
@@ -32,7 +32,7 @@ const lines = [
 		'black.blueBright',
 		'black.magentaBright',
 		'black.cyanBright',
-		'black.whiteBright'
+		'black.whiteBright',
 	],
 
 	[
@@ -43,7 +43,7 @@ const lines = [
 		'black.bold.bgBlue',
 		'black.bold.bgMagenta',
 		'black.bold.bgCyan',
-		'black.bold.bgWhite'
+		'black.bold.bgWhite',
 	],
 
 	[
@@ -54,8 +54,8 @@ const lines = [
 		'black.italic.bgBlueBright',
 		'black.italic.bgMagentaBright',
 		'black.italic.bgCyanBright',
-		'black.italic.bgWhiteBright'
-	]
+		'black.italic.bgWhiteBright',
+	],
 ]
 
 const applyChalk = parts => {
@@ -82,7 +82,9 @@ lines.forEach(line => {
 	output += '\n'
 })
 
+// eslint-disable-next-line no-console -- Fixture
 console.log(output)
+// eslint-disable-next-line no-console -- Fixture
 console.log(JSON.stringify(output))
 
 fs.writeFileSync('example.chalk-styles.ansi', output)

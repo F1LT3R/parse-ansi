@@ -55,7 +55,7 @@ const types = {
 	hiddenClose: 'hiddenClose',
 	strikethroughClose: 'strikethroughClose',
 
-	reset: 'reset'
+	reset: 'reset',
 }
 
 module.exports = types

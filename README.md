@@ -9,7 +9,7 @@
 
 Parse-ANSI takes an ANSI string as input:
 
-```plain
+```js
 const text = "🤖\u001B[31m DANGER\u001B[0m Will Robbinson"
 console.log(text)
 ```
@@ -28,7 +28,7 @@ console.log(parsed)
 
 ```js
 {
-    raw: '🤖\u001B[31m DANGER\u001B[0m Will Robbinson',    
+    raw: '🤖\u001B[31m DANGER\u001B[0m Will Robbinson',
     plain: '🤖 DANGER Will Robbinson',
     textArea: {columns: 24, rows: 1},
     chunks: [{
@@ -75,7 +75,7 @@ Each object in the output array is called a "chunk". Each chunk represents one o
 The style object contains a list of styles associated with the current chunk. Each style represents an ANSI Escape sequence that is mapped to  friendly name called an `ANSI-Tag`.
 
 - Styles are only included in text chunks.
-- Styles that are off/closed, are not present in the style object. 
+- Styles that are off/closed, are not present in the style object.
 
 The following style object describes a chunk of red text:
 
@@ -100,7 +100,7 @@ This object shows alls styles in combination:
 }
 ```
 
-Styles that are closed or reset are not included in the style object. 
+Styles that are closed or reset are not included in the style object.
 
 For example:
 
@@ -159,7 +159,7 @@ The value of a `text` chunk is a JavaScript string. The value of a text chunk sh
 
 ### ANSI Value
 
-The value of an `ansi` chunk is an object. 
+The value of an `ansi` chunk is an object.
 
 - `value.tag` - Friendly-named ansi-tag.
 - `value.ansi` - Raw ANSI string value.
@@ -178,6 +178,6 @@ You can find the list ansi-tags in [types/types.ansi-seqs-to-ansi-tags.js](types
 
 ## Install
 
-```
+```sh
 $ yarn add parse-ansi
 ```
